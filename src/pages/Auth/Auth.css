@@ -109,6 +109,12 @@ html, body {
   transform: translateY(-2px);
 }
 
+.auth-error {
+  color: #ff5c5c;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center;
+}
 
 /* =========================
    MOBILE VERSION

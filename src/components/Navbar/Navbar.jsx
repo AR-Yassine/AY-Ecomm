@@ -1,45 +1,66 @@
-// src/components/Navbar/Navbar.jsx
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-  const { getTotalQuantity } = useContext(CartContext);
+  const { getTotalQuantity } = useCart();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const totalQty = getTotalQuantity();
+
+  const handleLogout = () => {
+    logout();
+    setOpen(false);
+    navigate("/");
+  };
+
+  const handleCartClick = () => {
+    setOpen(false);
+    if (!user) navigate("/login");
+  };
 
   return (
     <nav className="navbar">
+      <Link to="/" className="nav-logo" onClick={() => setOpen(false)}>
+        AY E-Comm
+      </Link>
 
-      {/* LEFT SIDE */}
-      <div className="nav-left">
-        <Link to="/" className="nav-logo">AY E-Comm</Link>
-
-        {/* DESKTOP LINKS */}
-        <div className="nav-desktop">
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-          <Link to="/reviews" className="nav-link">Reviews</Link>
-          <Link to="/products" className="nav-link">Products</Link>
-        </div>
-      </div>
-
-      {/* HAMBURGER */}
       <div className="hamburger" onClick={() => setOpen(!open)}>
-        <div></div><div></div><div></div>
+        <div />
+        <div />
+        <div />
       </div>
 
-      {/* RIGHT SIDE */}
       <div className={`nav-right ${open ? "open" : ""}`}>
-        <div className="nav-auth">
-          <Link to="/login" className="nav-link nav-link-outline">Login</Link>
-          <Link to="/register" className="nav-link nav-link-secondary">Register</Link>
-        </div>
+        <NavLink to="/about" className="nav-link" onClick={() => setOpen(false)}>About</NavLink>
+        <NavLink to="/contact" className="nav-link" onClick={() => setOpen(false)}>Contact</NavLink>
+        <NavLink to="/reviews" className="nav-link" onClick={() => setOpen(false)}>Reviews</NavLink>
+        <NavLink to="/products" className="nav-link" onClick={() => setOpen(false)}>Products</NavLink>
 
-        <div className="cart">
-          🛒 <span className="cart-count">{getTotalQuantity()}</span>
-        </div>
+        {user ? (
+          <>
+            <span className="nav-user">Hi, {user.name}</span>
+            <button className="nav-link logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="nav-link" onClick={() => setOpen(false)}>Login</Link>
+            <Link to="/register" className="nav-link nav-link-secondary" onClick={() => setOpen(false)}>
+              Register
+            </Link>
+          </>
+        )}
+
+        <Link to={user ? "/cart" : "/login"} className="cart" onClick={handleCartClick}>
+          🛒
+          {totalQty > 0 && <span className="cart-count">{totalQty}</span>}
+        </Link>
       </div>
     </nav>
   );

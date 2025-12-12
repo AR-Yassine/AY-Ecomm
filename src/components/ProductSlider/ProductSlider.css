@@ -194,3 +194,19 @@
     font-size: 18px;
   }
 }
+.add-cart-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #ffc107;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #000;
+  transition: 0.2s;
+}
+
+.add-cart-btn:hover {
+  background: #ffda42;
+}

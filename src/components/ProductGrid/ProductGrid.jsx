@@ -1,49 +1,43 @@
 import "./ProductGrid.css";
-import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 
 function ProductGrid({ widget }) {
-  const products = Array.isArray(widget?.products) ? widget.products : [];
-  const scrollRef = useRef(null);
+  const products = widget?.products || [];
+  const { addToCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   if (!products.length) return null;
 
-  const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
-  };
-
-  const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
-  };
-
   return (
     <section className="product-grid-section">
-      <h3>{widget.title}</h3>
+      {widget.title && <h3>{widget.title}</h3>}
 
-      <div className="slider-wrapper">
-        <button className="slider-btn left" onClick={scrollLeft}>‹</button>
-
-        <div className="h-scroll" ref={scrollRef}>
-          {products.map((product) => (
-            <Link to={`/product/${product.id}`} key={product.id} className="h-card">
-              <div className="h-image-wrapper">
+      <div className="product-grid">
+        {products.map(product => (
+          <div key={product.id} className="grid-card">
+            <Link to={`/product/${product.id}`}>
+              <div className="grid-image">
                 <img src={product.image} alt={product.name} />
               </div>
 
-              <div className="h-title">{product.name}</div>
-
-              <div className="h-rating">
-                ⭐ {product.rating} ({product.reviewsCount})
-              </div>
-
-              <div className="h-desc">{product.shortDescription}</div>
-
-              <div className="h-price">${product.price.toFixed(2)}</div>
+              <h4 className="grid-title">{product.name}</h4>
+              <p className="grid-price">${product.price}</p>
             </Link>
-          ))}
-        </div>
 
-        <button className="slider-btn right" onClick={scrollRight}>›</button>
+            <button
+              className="grid-add-btn"
+              onClick={() => {
+                if (!user) return navigate("/login");
+                addToCart(product);
+              }}
+            >
+              Add to Cart
+            </button>
+          </div>
+        ))}
       </div>
     </section>
   );

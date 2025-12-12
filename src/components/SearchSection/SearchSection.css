@@ -29,23 +29,26 @@
   font-size: 15px;
 }
 
-/* Search button */
 .search-btn {
-  width: 50px;
+  width: 44px;
+  height: 44px;
+
+  margin: 4px;                /* creates space from the border */
+  border-radius: 50%;         /* 👈 perfect circle */
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   background: #ffc107;
   border: none;
-  
-  font-size: 20px; /* icon size */
+
+  font-size: 18px;
   color: #000;
 
   cursor: pointer;
   transition: 0.2s ease;
 }
-
 
 .search-btn:hover {
   background: #ffdd33;
@@ -92,5 +95,6 @@
   .search-box,
   .search-results {
     width: 90%;
+     align-items: center; /* 👈 centers button vertically */
   }
 }

@@ -13,8 +13,11 @@ function ProductDiscount({ widget }) {
     setShowButtons(el.scrollWidth > el.clientWidth);
   }, [products]);
 
-  const scrollLeft = () => scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
-  const scrollRight = () => scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+  const scrollLeft = () =>
+    scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+
+  const scrollRight = () =>
+    scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
 
   if (!products.length) return null;
 
@@ -23,16 +26,20 @@ function ProductDiscount({ widget }) {
       <h3>{widget.title}</h3>
 
       <div className="slider-wrapper">
-
         {showButtons && (
           <button className="slider-btn left" onClick={scrollLeft}>‹</button>
         )}
 
         <div className="h-scroll" ref={scrollRef}>
-          {products.map((product) => (
-            <Link key={product.id} to={`/product/${product.id}`} className="d-card">
-
-              <div className="discount-badge">-{product.discount}%</div>
+          {products.map(product => (
+            <Link
+              key={product.id}
+              to={`/product/${product.id}`}
+              className="d-card"
+            >
+              <div className="discount-badge">
+                -{product.discount}%
+              </div>
 
               <div className="h-image-wrapper">
                 <img src={product.image} alt={product.name} />

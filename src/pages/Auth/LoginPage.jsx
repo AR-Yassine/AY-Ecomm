@@ -1,22 +1,37 @@
-// src/pages/Auth/LoginPage.jsx
 import { useState } from "react";
-import "./Auth.css";   // ⬅️ use shared CSS
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import "./Auth.css";
 
 function LoginPage() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+
+    const res = login(email, password);
+
+    if (res?.error) {
+      setError(res.error);
+    } else {
+      navigate("/"); // back to home
+    }
+  };
 
   return (
     <div className="auth-page">
       <div className="auth-card">
         <h1>Login</h1>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            // handle submit...
-          }}
-        >
+        {error && <p className="auth-error">{error}</p>}
+
+        <form onSubmit={handleSubmit}>
           <label>
             Email
             <input
@@ -24,6 +39,7 @@ function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
+              required
             />
           </label>
 
@@ -34,6 +50,7 @@ function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
+              required
             />
           </label>
 
