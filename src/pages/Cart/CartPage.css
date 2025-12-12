@@ -247,3 +247,38 @@
     width: 100%;
   }
 }
+/* =========================
+   MOBILE FIX — ORDER SUMMARY BUTTONS
+   ========================= */
+@media (max-width: 480px) {
+
+  /* Buttons wrapper inside summary */
+  .cart-summary .checkout-form,
+  .cart-summary .summary-actions {
+    display: flex;
+    flex-direction: column;   /* 🔥 stack buttons */
+    gap: 12px;
+  }
+
+  /* Proceed to Checkout */
+  .cart-summary button,
+  .cart-summary .checkout-btn {
+    width: 100%;              /* 🔥 full width */
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  /* Clear Cart (secondary) */
+  .cart-summary .clear-btn {
+    background: transparent;
+    border: 1px solid #555;
+    color: #fff;
+  }
+
+  .cart-summary .clear-btn:hover {
+    border-color: #ff6666;
+    color: #ff6666;
+  }
+}

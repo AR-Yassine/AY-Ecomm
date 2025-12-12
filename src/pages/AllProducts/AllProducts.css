@@ -1,87 +1,293 @@
-.all-products-page {
-  padding: 20px;
+/* =========================
+   PRODUCT SLIDER SECTION
+   ========================= */
+.product-slider-section {
+  margin-top: 40px;
 }
 
-/* GRID LAYOUT */
-.products-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 32px; /* 🔥 INCREASE GAP (was 24px) */
-  align-items: flex-start;
+.product-slider-section h3 {
+  margin-bottom: 16px;
 }
 
-
-/* FILTER SIDEBAR = NO BACKGROUND */
-.filters-sidebar {
-  position: sticky;
-  top: 80px;
-  width: 230px;
-}
-
-/* PRODUCTS CONTENT */
-.products-content {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  overflow: visible;
-}
-
-/* SECTION TITLES */
-.section-title {
-  font-size: 22px;
-  font-weight: 600;
-  color: white;
-  margin: 0 0 10px 4px;
-}
-
-/* SLIDERS FIX */
-.products-content section {
-  overflow: visible;
+/* =========================
+   SLIDER WRAPPER
+   ========================= */
+.slider-wrapper {
+  position: relative;
   width: 100%;
 }
 
-/* MOBILE */
-@media (max-width: 480px) {
-  .home-page,
-  .product-page,
-  .all-products-page {
-    padding: 20px 16px;
+/* =========================
+   HORIZONTAL SCROLL
+   ========================= */
+.h-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 6px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.h-scroll::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
+}
+
+/* =========================
+   SLIDER CARD
+   ========================= */
+.h-card {
+  min-width: 260px;
+  max-width: 260px;
+  flex-shrink: 0;                 /* 🔥 REQUIRED */
+  background: #141414;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.h-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.45);
+}
+
+/* IMAGE */
+.h-image-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.h-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TEXT */
+.h-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.h-desc {
+  font-size: 13px;
+  color: #ccc;
+  opacity: 0.85;
+  margin-top: 4px;
+  min-height: 32px;
+}
+
+.h-price {
+  margin-top: auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffc107;
+}
+
+/* =========================
+   SLIDER BUTTONS
+   ========================= */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffc107;
+  font-size: 22px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+  transition: 0.25s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.slider-btn.left {
+  left: -12px;
+}
+
+.slider-btn.right {
+  right: -12px;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+@media (max-width: 768px) {
+
+  .h-card {
+    min-width: 80%;
+    max-width: 80%;
+  }
+
+  .slider-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .slider-btn.left {
+    left: 6px;
+  }
+
+  .slider-btn.right {
+    right: 6px;
   }
 }
 
-/* BIG SCREENS */
-/* MOBILE FIX — ALL PRODUCTS PAGE */
+/* =========================
+   MOBILE
+   ========================= */
 @media (max-width: 480px) {
 
+  .h-card {
+    min-width: 90%;
+    max-width: 90%;
+  }
+
+  /* Buttons stay but don’t block swipe */
+  .slider-btn {
+    opacity: 0.85;
+  }
+}
+.h-card {
+  flex-shrink: 0;
+}
+/* =========================
+   MOBILE FILTER UX
+   ========================= */
+@media (max-width: 768px) {
+
+  /* Collapse layout */
   .products-layout {
-    grid-template-columns: 1fr;   /* 🔥 KILL sidebar column */
-    gap: 24px;
+    grid-template-columns: 1fr;
+  }
+
+  /* Filters hidden by default */
+  .filters-sidebar {
+    display: none;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    background: #111;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,193,7,0.3);
+  }
+
+  /* Show filters when active */
+  .filters-sidebar.active {
+    display: block;
+  }
+}
+/* =========================
+   FILTER RESPONSIVENESS — FINAL
+   ========================= */
+
+/* ===== BIG SCREENS (filters too wide) ===== */
+@media (min-width: 1200px) {
+  .products-layout {
+    grid-template-columns: 280px 1fr; /* ⬅ controlled width */
   }
 
   .filters-sidebar {
-    position: relative;           /* 🔥 no sticky on mobile */
+    width: 100%;
+    max-width: 280px;               /* ⬅ stop being huge */
+  }
+}
+
+/* ===== MOBILE & TABLET (filters visible but smaller) ===== */
+@media (max-width: 768px) {
+
+  .products-layout {
+    grid-template-columns: 1fr;     /* stack layout */
+    gap: 20px;
+  }
+
+  .filters-sidebar {
+    position: relative;
     top: auto;
+
     width: 100%;
-    margin-right: 0;
+    max-width: 100%;                /* ⬅ full width container */
+    padding: 12px;                  /* ⬅ smaller padding */
+    margin-bottom: 16px;
+
+    border-radius: 14px;
+    background: #111;
+    border: 1px solid rgba(255,193,7,0.25);
   }
 
-  .products-content {
-    width: 100%;
+  /* shrink filter inputs visually */
+  .filters-sidebar input,
+  .filters-sidebar select {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .filters-sidebar h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
   }
 }
 
-/* FILTER should stay above background, NOT above sliders */
-.filters-sidebar {
-  position: sticky;
-  top: 80px;
-  z-index: 2;
-}
+/* ===== VERY SMALL MOBILE ===== */
+@media (max-width: 480px) {
 
-/* SLIDERS must be above filters when interacting */
-.products-content {
-  position: relative;
-  z-index: 3;
+  .filters-sidebar {
+    padding: 10px;
+  }
+
+  .filters-sidebar h3 {
+    font-size: 15px;
+  }
 }
-.filters-sidebar {
-  margin-right: 6px;
+/* =========================
+   FORCE FILTER TO SHOW ON MOBILE
+   ========================= */
+@media (max-width: 768px) {
+
+  .filters-sidebar {
+    display: block !important;   /* 🔥 OVERRIDE display:none */
+    position: relative;
+    top: auto;
+
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+
+    background: #111;
+    border-radius: 14px;
+    border: 1px solid rgba(255,193,7,0.25);
+  }
+
+  .products-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
