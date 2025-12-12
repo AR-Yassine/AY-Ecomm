@@ -1,0 +1,62 @@
+.all-products-page {
+  padding: 20px;
+}
+
+.store-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #eee;
+}
+
+/* MAIN LAYOUT: filters left, products right */
+.products-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* the ONLY spacing we need */
+}
+
+/* LEFT FILTER BOX */
+.filters-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+/* RIGHT SIDE CONTENT - EVERYTHING STACKS HERE */
+.products-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0; /* NO SIDE MARGINS → no gaps */
+}
+
+/* SLIDERS, GRIDS, DISCOUNTS → Always full width */
+.products-content > * {
+  width: 100%;
+}
+
+/* NON-FILTER MODE SECTIONS */
+.non-filter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .products-layout {
+    flex-direction: column;
+  }
+
+  .filters-sidebar {
+    width: 100%;
+  }
+}
+.section-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  margin: 20px 0 10px 10px;
+}

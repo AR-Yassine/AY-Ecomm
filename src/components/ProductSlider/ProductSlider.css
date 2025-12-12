@@ -1,0 +1,196 @@
+.product-slider-section {
+  margin-top: 40px;
+}
+
+.product-slider-section h3 {
+  margin-bottom: 16px;
+}
+
+/* Horizontal scroll container */
+.h-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.h-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.h-scroll::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+/* Product card inside slider */
+.h-card {
+  min-width: 260px;
+  max-width: 260px;
+  background: #141414;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.h-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.45);
+}
+
+.h-image-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.h-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.h-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.h-rating {
+  color: #ffc107;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.h-desc {
+  font-size: 13px;
+  color: #cccccc;
+  opacity: 0.85;
+  margin-top: 4px;
+  min-height: 32px;
+}
+/* GLASSY SLIDER BUTTONS FOR FEATURED */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+
+  color: #ffc107;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: 0.25s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 193, 7, 0.2);
+  border-color: #ffc107;
+  transform: translateY(-50%) scale(1.15);
+}
+
+.slider-btn.left {
+  left: 5px;
+}
+
+.slider-btn.right {
+  right: 5px;
+}
+
+.h-price {
+  margin-top: auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffc107;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .h-card {
+    min-width: 80%;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .h-card {
+    min-width: 90%;
+    max-width: 90%;
+  }
+}
+/* Wrapper needed to center arrows */
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Glassy arrows */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+
+  color: #ffc107;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 20px;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+  transition: 0.25s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 193, 7, 0.2);
+  transform: translateY(-50%) scale(1.15);
+}
+
+.slider-btn.left {
+  left: 5px;
+}
+
+.slider-btn.right {
+  right: 5px;
+}
+
+/* Needed to avoid arrows overlapping content on mobile */
+@media (max-width: 768px) {
+  .slider-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+}

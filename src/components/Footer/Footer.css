@@ -1,0 +1,98 @@
+.footer {
+  background: #0e0e0e;
+  padding: 40px 20px 20px;
+  border-top: 1px solid #222;
+  color: #ccc;
+  margin-top: auto;        /* ⭐ MAGIC LINE */
+  width: 100%;
+}
+
+
+/* Flex layout */
+.footer-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-section h3, .footer-section h4 {
+  color: #ffc107;
+  margin-bottom: 8px;
+}
+
+.footer-section p {
+  margin: 4px 0;
+  opacity: 0.85;
+}
+
+/* Social icons */
+.footer-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.footer-icons a {
+  color: white;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.footer-icons a:hover {
+  color: #ffc107;
+  transform: scale(1.15);
+}
+
+/* Copy text */
+.footer-copy {
+  margin-top: 30px;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+
+  display: flex;
+  flex-direction: column;      /* ⭐ Stack arrow + text */
+  align-items: center;         /* ⭐ Center horizontally */
+  justify-content: center;    
+
+  background: #ffc107;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+
+  cursor: pointer;
+  z-index: 9999;
+  border: none;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  transition: all 0.3s ease;
+}
+
+
+.back-to-top:hover {
+  background: #ffdd4d;
+  transform: translateY(-4px);
+}
+.back-text {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: black;
+  opacity: 0.8;
+  pointer-events: none;  /* avoids click blocking */
+}
+
+.arrow {
+  font-size: 22px;
+  line-height: 22px;
+  color: black;
+}

@@ -1,0 +1,152 @@
+/* NAVBAR BASE */
+.navbar {
+  width: 100%;
+  max-width: 100%;
+  height: 60px;
+  background: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  overflow: hidden;   /* ⭐ prevents navbar from causing scroll */
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-shrink: 0;      /* ⭐ prevents navbar items from shrinking */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-auth {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-logo {
+  color: #ffc107;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* DESKTOP MENU */
+.nav-desktop {
+  display: flex;
+  gap: 24px;      /* ⭐ FIXES SPACING */
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+
+/* AUTH BUTTONS */
+.nav-link-outline {
+  padding: 4px 10px;
+  border-radius: 30px;
+  border: 1px solid #ffc107;
+  color: #ffc107;
+}
+
+.nav-link-outline:hover {
+  background: #ffc107;
+  color: #000;
+}
+
+.nav-link-secondary {
+  padding: 4px 12px;
+  border-radius: 30px;
+  background: #ffc107;
+  color: #000;
+}
+
+/* CART */
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+}
+.cart-count {
+  padding: 2px 7px;
+  border-radius: 50%;
+  background: #ffc107;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.hamburger div {
+  width: 24px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-right {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    background: #111;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    display: none;
+  }
+
+  .nav-right.open {
+    display: flex;
+  }
+
+  .nav-auth {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+.navbar {
+  justify-content: space-between;
+}
+
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}

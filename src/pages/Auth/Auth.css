@@ -1,0 +1,121 @@
+/* =========================
+   RESET GLOBAL LEAKING CSS
+   ========================= */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  display: block !important;    /* prevents flex leak */
+}
+
+
+/* =========================
+   AUTH PAGE WRAPPER
+   ========================= */
+.auth-page {
+  width: 100%;
+  min-height: calc(100vh - 60px);   /* full height under navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   AUTH CARD
+   ========================= */
+.auth-card {
+  width: 100%;
+  max-width: 480px;               /* laptop size */
+  background: #111;
+  border-radius: 18px;
+  padding: 32px 28px;
+  color: white;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
+
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.45s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.auth-card h1 {
+  margin-bottom: 22px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-card label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;    /* ⭐ added space */
+}
+
+
+.auth-card input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #1b1b1b;
+  color: white;
+  font-size: 15px;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #ffc107;
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.3);
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+.auth-card button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #ffc107;
+  color: #000;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.auth-card button:hover {
+  background: #ffdd4d;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   MOBILE VERSION
+   ========================= */
+@media (max-width: 600px) {
+  .auth-card {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+}

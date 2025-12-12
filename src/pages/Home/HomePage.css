@@ -1,0 +1,65 @@
+/* HOME PAGE MAIN WRAPPER */
+.home-page {
+  width: 100%;
+  max-width: 1800px;      /* looks good on MSI + laptop */
+  margin: 0 auto;
+  padding: 40px 32px;
+  padding-top: 40px;      /* pushes content under navbar */
+  box-sizing: border-box;
+}
+
+.home-top-section {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Filters on the left */
+.filters-left {
+  width: 22%;
+  min-width: 240px;
+}
+
+/* Hero on the right */
+.hero-right {
+  flex-grow: 1;
+}
+
+/* Make layout responsive */
+@media (max-width: 900px) {
+  .home-top-section {
+    flex-direction: column;
+  }
+
+  .filters-left {
+    width: 100%;
+    order: 2;
+  }
+
+  .hero-right {
+    order: 1;
+  }
+}
+
+
+.filters-wrapper {
+  max-width: 320px;
+  margin: 0 auto 20px auto;
+}
+
+
+/* TITLES */
+.home-page h1,
+.home-page h2,
+.home-page h3 {
+  color: white;
+  margin-bottom: 16px;
+}
+
+/* EXTRA LARGE SCREENS (very wide monitors) */
+@media (min-width: 1900px) {
+  .home-page {
+    max-width: 1900px;
+  }
+}
