@@ -60,3 +60,37 @@
   font-size: 18px;
   font-weight: bold;
 }
+/* ADD THESE TO ProductDiscount.css */
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.add-btn {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #ffc107;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  background: #ffda42;
+}
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.h-scroll {
+  overflow-x: auto;
+}

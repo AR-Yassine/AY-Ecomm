@@ -1,4 +1,4 @@
-// UPDATED AllProducts.jsx (FIXED NAME ERROR)
+// src/pages/AllProducts/AllProducts.jsx
 
 import "./AllProducts.css";
 import { useState } from "react";
@@ -29,6 +29,7 @@ function AllProducts() {
 
   return (
     <div className="all-products-page">
+      {/* ✅ SEARCH IS BACK */}
       <SearchSection setSearchQuery={setSearchQuery} />
 
       <div className="products-layout">
@@ -38,22 +39,32 @@ function AllProducts() {
 
         <main className="products-content">
           {isFiltering ? (
-            <ProductGrid widget={{ title: "", products: filteredList }} />
+            <>
+              <h2 className="section-title">Results</h2>
+              <ProductGrid widget={{ title: "", products: filteredList }} />
+            </>
           ) : (
             <>
-              <ProductDiscount
-                widget={{
-                  title: "Hot Deals",
-                  products: products.filter((p) => p.isDiscounted),
-                }}
-              />
+              <h2 className="section-title">🔥 Hot Deals</h2>
+              <ProductDiscount widget={{ title: "", products: products.filter(p => p.isDiscounted) }} />
 
-              <ProductSlider widget={{ title: "", products: products.filter((p) => p.section === "Fashion") }} />
-              <ProductSlider widget={{ title: "", products: products.filter((p) => p.section === "Watches") }} />
-              <ProductSlider widget={{ title: "", products: products.filter((p) => p.section === "Footwear") }} />
-              <ProductSlider widget={{ title: "", products: products.filter((p) => p.section === "Tech Gadgets") }} />
-              <ProductSlider widget={{ title: "", products: products.filter((p) => p.section === "Cameras") }} />
-              <ProductGrid widget={{ title: "", products: products.filter((p) => p.section === "Accessories") }} />
+              <h2 className="section-title">👕 Fashion</h2>
+              <ProductSlider widget={{ title: "", products: products.filter(p => p.section === "Fashion") }} />
+
+              <h2 className="section-title">⌚ Watches</h2>
+              <ProductSlider widget={{ title: "", products: products.filter(p => p.section === "Watches") }} />
+
+              <h2 className="section-title">👟 Footwear</h2>
+              <ProductSlider widget={{ title: "", products: products.filter(p => p.section === "Footwear") }} />
+
+              <h2 className="section-title">💻 Tech Gadgets</h2>
+              <ProductSlider widget={{ title: "", products: products.filter(p => p.section === "Tech Gadgets") }} />
+
+              <h2 className="section-title">📷 Cameras</h2>
+              <ProductSlider widget={{ title: "", products: products.filter(p => p.section === "Cameras") }} />
+
+              <h2 className="section-title">👜 Accessories</h2>
+              <ProductGrid widget={{ title: "", products: products.filter(p => p.section === "Accessories") }} />
             </>
           )}
         </main>

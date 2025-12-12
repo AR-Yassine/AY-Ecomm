@@ -1,3 +1,5 @@
+// UPDATED App.jsx (CHECKOUT ROUTE ADDED)
+
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -7,6 +9,9 @@ import ProductPage from "./pages/Product/ProductPage";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import CartPage from "./pages/Cart/CartPage";
+import CheckoutPage from "./pages/Checkout/CheckoutPage";
+// optional online payment page
+import PaymentPage from "./pages/Payment/PaymentPage";
 
 // Other pages
 import ContactPage from "./pages/Contact/Contact.jsx";
@@ -32,6 +37,10 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/cart" element={<CartPage />} />
+
+          {/* ✅ NEW */}
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
         </Routes>
       </div>
 

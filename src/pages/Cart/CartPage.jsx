@@ -1,10 +1,14 @@
+// UPDATED CartPage.jsx (FIXED INVALID HOOK CALL)
+
 import "./CartPage.css";
 import { useCart } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function CartPage() {
+  const navigate = useNavigate(); // ✅ MUST be inside component
+
   const {
-    cart = [], // ✅ safety fallback
+    cart = [],
     removeFromCart,
     clearCart,
     getTotalPrice,
@@ -57,7 +61,12 @@ function CartPage() {
             <strong>${getTotalPrice().toFixed(2)}</strong>
           </div>
 
-          <button className="checkout-btn">Proceed to Checkout</button>
+          <button
+            className="checkout-btn"
+            onClick={() => navigate("/checkout")}
+          >
+            Proceed to Checkout
+          </button>
 
           <button className="clear-btn" onClick={clearCart}>
             Clear Cart

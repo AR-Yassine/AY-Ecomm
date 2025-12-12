@@ -210,3 +210,12 @@
 .add-cart-btn:hover {
   background: #ffda42;
 }
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.h-scroll {
+  overflow-x: auto;
+}

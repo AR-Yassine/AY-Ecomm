@@ -2,61 +2,67 @@
   padding: 20px;
 }
 
-.store-title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 32px;
-  font-weight: bold;
-  color: #eee;
-}
-
-/* MAIN LAYOUT: filters left, products right */
+/* GRID LAYOUT */
 .products-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px; /* 🔥 INCREASE GAP (was 24px) */
   align-items: flex-start;
-  gap: 20px; /* the ONLY spacing we need */
 }
 
-/* LEFT FILTER BOX */
+
+/* FILTER SIDEBAR = NO BACKGROUND */
 .filters-sidebar {
-  width: 260px;
-  flex-shrink: 0;
+  position: sticky;
+  top: 80px;
+  width: 230px;
 }
 
-/* RIGHT SIDE CONTENT - EVERYTHING STACKS HERE */
+/* PRODUCTS CONTENT */
 .products-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin: 0; /* NO SIDE MARGINS → no gaps */
+  gap: 30px;
+  overflow: visible;
 }
 
-/* SLIDERS, GRIDS, DISCOUNTS → Always full width */
-.products-content > * {
+/* SECTION TITLES */
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 10px 4px;
+}
+
+/* SLIDERS FIX */
+.products-content section {
+  overflow: visible;
   width: 100%;
-}
-
-/* NON-FILTER MODE SECTIONS */
-.non-filter-content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .products-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .filters-sidebar {
-    width: 100%;
+    position: relative;
+    top: auto;
   }
 }
-.section-title {
-  font-size: 26px;
-  font-weight: bold;
-  color: white;
-  margin: 20px 0 10px 10px;
+/* FILTER should stay above background, NOT above sliders */
+.filters-sidebar {
+  position: sticky;
+  top: 80px;
+  z-index: 2;
+}
+
+/* SLIDERS must be above filters when interacting */
+.products-content {
+  position: relative;
+  z-index: 3;
+}
+.filters-sidebar {
+  margin-right: 6px;
 }

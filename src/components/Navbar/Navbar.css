@@ -66,6 +66,16 @@
   font: inherit;
   color: inherit;
   cursor: pointer;
+    padding: 4px 4x;
+  border-radius: 30px;
+  background: white;
+  color: #000;
+  height: 35px;
+  width: 70px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
 }
 
 /* CART RIGHT */
