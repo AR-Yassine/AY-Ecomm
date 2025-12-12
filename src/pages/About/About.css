@@ -91,14 +91,19 @@
   opacity: 0.8;
   font-size: 13px;
 }
-
 /* MOBILE */
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 480px) {
+  .home-page,
+  .product-page,
+  .all-products-page {
+    padding: 20px 16px;
   }
+}
 
-  .about-hero h1 {
-    font-size: 26px;
+/* BIG SCREENS */
+@media (min-width: 1900px) {
+  .home-page,
+  .product-page {
+    max-width: 1900px;
   }
 }

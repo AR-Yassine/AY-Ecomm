@@ -96,3 +96,21 @@
   line-height: 22px;
   color: black;
 }
+/* MOBILE */
+@media (max-width: 480px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+}
+
+/* BIG SCREENS */
+@media (min-width: 1600px) {
+  .footer {
+    padding: 60px 40px;
+  }
+}

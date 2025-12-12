@@ -79,14 +79,6 @@
 }
 
 /* CART RIGHT */
-.cart {
-  position: relative;
-  font-size: 20px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  margin-left: auto;               /* ⭐ pushes cart to far right */
-}
 
 /* CART COUNT – BESIDE ICON (NOT ABOVE) */
 .cart-count {
@@ -153,6 +145,41 @@
 
   .nav-right.open {
     display: flex;
+  }
+
+  .cart {
+    margin-left: 0;
+  }
+}
+@media (max-width: 768px) {
+
+  .nav-right {
+    position: absolute;
+    top: 60px;
+    right: 12px;              /* ⬅ move menu to the right */
+    width: auto;              /* ⬅ NOT full width */
+    min-width: 220px;         /* ⬅ clean dropdown size */
+    padding: 18px 16px;
+    background: #111;
+    border-radius: 14px;      /* ⬅ dropdown look */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    display: none;
+
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+
+  .nav-right.open {
+    display: flex;
+  }
+
+  /* REMOVE DESKTOP HEIGHT ON MOBILE */
+  .nav-link,
+  .nav-user {
+    height: auto;
   }
 
   .cart {

@@ -126,20 +126,6 @@
   color: #ffc107;
 }
 
-/* RESPONSIVENESS */
-@media (max-width: 768px) {
-  .h-card {
-    min-width: 80%;
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .h-card {
-    min-width: 90%;
-    max-width: 90%;
-  }
-}
 /* Wrapper needed to center arrows */
 .slider-wrapper {
   position: relative;
@@ -186,14 +172,7 @@
   right: 5px;
 }
 
-/* Needed to avoid arrows overlapping content on mobile */
-@media (max-width: 768px) {
-  .slider-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
-  }
-}
+
 .add-cart-btn {
   width: 100%;
   margin-top: 10px;
@@ -218,4 +197,30 @@
 
 .h-scroll {
   overflow-x: auto;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .h-card {
+    min-width: 92%;
+    max-width: 92%;
+  }
+
+  .h-image-wrapper {
+    height: 170px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .h-card {
+    min-width: 300px;
+  }
+}
+
+/* BIG SCREENS */
+@media (min-width: 1600px) {
+  .h-card {
+    min-width: 320px;
+  }
 }

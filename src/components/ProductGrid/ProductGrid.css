@@ -73,3 +73,33 @@
 .grid-add-btn:hover {
   opacity: 0.9;
 }
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .product-grid {
+    gap: 16px;
+  }
+
+  .grid-image {
+    height: 160px;
+  }
+
+  .grid-title {
+    font-size: 15px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* BIG SCREENS */
+@media (min-width: 1600px) {
+  .product-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

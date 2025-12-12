@@ -90,11 +90,13 @@
   font-weight: bold;
 }
 
-/* Responsive */
-@media (max-width: 520px) {
-  .search-box,
+/* MOBILE */
+@media (max-width: 480px) {
+  .search-box {
+    width: 100%;
+  }
+
   .search-results {
-    width: 90%;
-     align-items: center; /* 👈 centers button vertically */
+    width: 100%;
   }
 }

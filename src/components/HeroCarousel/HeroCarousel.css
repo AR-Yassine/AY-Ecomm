@@ -153,17 +153,31 @@
 }
 
 /* Mobile */
-@media (max-width: 768px) {
-  .hero-slide {
-    grid-template-columns: 1fr;
-    padding: 22px 18px;
-  }
-
+/* MOBILE */
+@media (max-width: 480px) {
   .hero-text h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
-  .hero-image-wrapper {
-    order: -1;
+  .hero-desc {
+    font-size: 13px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .hero-slide {
+    gap: 24px;
+  }
+}
+
+/* BIG SCREENS */
+@media (min-width: 1600px) {
+  .hero-text h1 {
+    font-size: 36px;
   }
 }

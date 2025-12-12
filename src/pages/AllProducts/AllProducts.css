@@ -40,17 +40,36 @@
   width: 100%;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
+/* MOBILE */
+@media (max-width: 480px) {
+  .home-page,
+  .product-page,
+  .all-products-page {
+    padding: 20px 16px;
+  }
+}
+
+/* BIG SCREENS */
+/* MOBILE FIX — ALL PRODUCTS PAGE */
+@media (max-width: 480px) {
+
   .products-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;   /* 🔥 KILL sidebar column */
+    gap: 24px;
   }
 
   .filters-sidebar {
-    position: relative;
+    position: relative;           /* 🔥 no sticky on mobile */
     top: auto;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .products-content {
+    width: 100%;
   }
 }
+
 /* FILTER should stay above background, NOT above sliders */
 .filters-sidebar {
   position: sticky;

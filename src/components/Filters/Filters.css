@@ -54,3 +54,20 @@
 .apply-btn:hover {
   background: #ffda42;
 }
+/* MOBILE */
+@media (max-width: 480px) {
+  .filters-box {
+    padding: 16px;
+  }
+
+  .filters-box h3 {
+    font-size: 18px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .filters-box {
+    width: 100%;
+  }
+}

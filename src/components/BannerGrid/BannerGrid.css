@@ -32,3 +32,26 @@
   object-fit: cover;
   border-radius: 14px;
 }
+/* MOBILE */
+@media (max-width: 480px) {
+  .banner-card,
+  .banner-wrapper img {
+    height: 180px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .banner-card,
+  .banner-wrapper img {
+    height: 220px;
+  }
+}
+
+/* BIG SCREENS */
+@media (min-width: 1600px) {
+  .banner-card,
+  .banner-wrapper img {
+    height: 300px;
+  }
+}

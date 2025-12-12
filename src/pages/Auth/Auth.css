@@ -119,9 +119,19 @@ html, body {
 /* =========================
    MOBILE VERSION
    ========================= */
-@media (max-width: 600px) {
-  .auth-card {
-    max-width: 100%;
-    padding: 24px 20px;
+/* MOBILE */
+@media (max-width: 480px) {
+  .home-page,
+  .product-page,
+  .all-products-page {
+    padding: 20px 16px;
+  }
+}
+
+/* BIG SCREENS */
+@media (min-width: 1900px) {
+  .home-page,
+  .product-page {
+    max-width: 1900px;
   }
 }
